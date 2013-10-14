@@ -33,7 +33,7 @@ public static class AutoBuilder {
 		PlayerSettings.bundleIdentifier = "com.ea.SimpleTextEditor";
 		PlayerSettings.bundleVersion = "1.0";
 		EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTarget.iPhone);
-		string target_dir = TARGET + "/iOSstarTrooper-unity";
+		string target_dir = TARGET + "/" + APPNAME;
 		string error = BuildPipeline.BuildPlayer(GetScenePaths(),target_dir,BuildTarget.iPhone,BuildOptions.None);
 		if (error != null && error.Length > 0) {
             		throw new Exception("Build failed: " + error);
@@ -42,7 +42,7 @@ public static class AutoBuilder {
 	[MenuItem("File/AutoBuilder/Android")]
 	static void PerformAndroidBuild ()
 	{
-		string target_dir = TARGET + "/starTrooper-unity/" + APPNAME + ".apk";
+		string target_dir = TARGET + "/" + APPNAME + ".apk";
 		EditorUserBuildSettings.SwitchActiveBuildTarget(BuildTarget.Android);
 		string error = BuildPipeline.BuildPlayer(GetScenePaths(), target_dir, BuildTarget.Android, BuildOptions.None);
 		if(error!=null && error.Length>0)
